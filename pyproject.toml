@@ -32,7 +32,8 @@ Homepage = "https://github.com/waketzheng/pdm-plugin-i"
 pdm-plugin-i = "pdm_plugin_i:plugin"
 
 [tool.pdm]
-version = {source = "scm"}
+version = { source = "file", path = "src/pdm_plugin_i/__init__.py" }
+distribution = true
 
 [tool.pdm.build]
 package-dir = "src"

@@ -10,6 +10,8 @@ from pdm.core import Core
 
 from .command import Command
 
+__version__ = "0.1.0"
+
 
 def plugin(core: Core) -> None:
     core.register_command(Command)
