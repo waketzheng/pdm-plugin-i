@@ -9,7 +9,7 @@ A PDM plugin that add command `pdm i` as alias of `pdm install`
 
 ## Requirements
 
-pdm-packer requires Python >=3.8
+pdm-plugin-i requires Python >=3.8
 
 ## Installation
 
