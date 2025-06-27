@@ -37,6 +37,8 @@ jobs:
           pdm run deps
       - uses: astral-sh/ruff-action@v3
       - name: Check style
-        run: pdm run lint
+        run: |
+          uv pip install mypy
+          pdm run lint
       - name: Run Tests
         run: pdm run test
