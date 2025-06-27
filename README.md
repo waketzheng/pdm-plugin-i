@@ -9,14 +9,14 @@ A PDM plugin that add command `pdm i` as alias of `pdm install`
 
 ## Requirements
 
-pdm-plugin-i requires Python >=3.8
+pdm-plugin-i requires Python >=3.9
 
 ## Installation
 
-On PDM 1.6.4+, you can install the plugin directly by:
+On PDM 2.25+, you can install the plugin directly by:
 
 ```bash
-$ pdm plugin add pdm-plugin-i
+$ pdm self add pdm-plugin-i
 ```
 
 If you have installed PDM with the recommended tool `pipx`, add this plugin by:
