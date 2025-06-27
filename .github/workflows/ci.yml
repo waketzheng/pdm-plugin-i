@@ -35,6 +35,7 @@ jobs:
         run: |
           pdm config use_uv true
           pdm run deps
+      - uses: astral-sh/ruff-action@v3
       - name: Check style
         run: pdm run lint
       - name: Run Tests

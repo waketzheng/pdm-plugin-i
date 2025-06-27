@@ -22,7 +22,7 @@ classifiers = [
 dependencies = []
 
 [dependency-groups]
-dev = ["pytest>=8.3.3", "pdm>=2.20.0", "ruff>=0.7.1", "click>=8.1.7", "mypy>=1.13.0"]
+dev = ["pytest>=8.3.3", "pdm>=2.20.0", "click>=8.1.7", "mypy>=1.13.0"]
 
 [project.urls]
 Repository = "https://github.com/waketzheng/pdm-plugin-i"
@@ -44,10 +44,10 @@ package-dir = "src"
 [tool.pdm.scripts]
 deps = "pdm install --plugins"
 lock = "pdm lock --group :all --strategy inherit_metadata"
-test = "pytest tests/"
-format = "ruff format ."
-style = "ruff check --extend-select=I,B,SIM --fix ."
-type_hint = "mypy ."
+test = "pdm run pytest tests/"
+format = "pdm run ruff format ."
+style = "pdm run ruff check --extend-select=I,B,SIM --fix ."
+type_hint = "pdm run mypy ."
 lint = {composite = ["format", "style", "type_hint"]}
 
 [tool.pytest.ini_options]
