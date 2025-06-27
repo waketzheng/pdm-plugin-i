@@ -9,8 +9,8 @@ def example_project(invoke, main, tmp_path):
             "project": {
                 "name": "test_app",
                 "version": "0.1.0",
-                "requires-python": ">=3.8",
-                "dependencies": ["requests==2.32.3"],
+                "requires-python": ">=3.9",
+                "dependencies": ["six==1.17.0"],
             },
             "build-system": {
                 "requires": ["pdm-backend"],

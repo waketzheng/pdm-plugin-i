@@ -34,11 +34,15 @@ pdm-plugin-i = "pdm_plugin_i:plugin"
 [tool.pdm]
 version = { source = "file", path = "src/pdm_plugin_i/__init__.py" }
 distribution = true
+plugins = [
+    "-e file:///${PROJECT_ROOT}"
+]
 
 [tool.pdm.build]
 package-dir = "src"
 
 [tool.pdm.scripts]
+deps = "pdm install --plugins"
 lock = "pdm lock --group :all --strategy inherit_metadata"
 test = "pytest tests/"
 format = "ruff format ."

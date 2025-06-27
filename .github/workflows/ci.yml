@@ -30,8 +30,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: true
 
+      - uses: astral-sh/setup-uv@v6
       - name: Install dependencies
-        run: pdm sync
+        run: |
+          pdm config use_uv true
+          pdm run deps
       - name: Check style
         run: pdm run lint
       - name: Run Tests
