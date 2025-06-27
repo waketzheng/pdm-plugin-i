@@ -42,11 +42,11 @@ plugins = [
 package-dir = "src"
 
 [tool.pdm.scripts]
-deps = "pdm install --plugins"
+deps = "pdm install --plugins --with=dev"
 lock = "pdm lock --group :all --strategy inherit_metadata"
 test = "pdm run pytest tests/"
-format = "pdm run ruff format ."
-style = "pdm run ruff check --extend-select=I,B,SIM --fix ."
+format = "ruff format ."
+style = "ruff check --extend-select=I,B,SIM --fix ."
 type_hint = "pdm run mypy ."
 lint = {composite = ["format", "style", "type_hint"]}
 
