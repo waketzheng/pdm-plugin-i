@@ -19,18 +19,21 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [3.8, 3.9, '3.10', '3.11', '3.12']
+        python-version: [3.9, 3.10, 3.11, 3.12, 3.13, 3.14]
         os: [ubuntu-latest, macOS-latest, windows-latest]
 
     steps:
       - uses: actions/checkout@v4
       - name: Set up PDM
-        uses: pdm-project/setup-pdm@v3
+        uses: pdm-project/setup-pdm@v4
         with:
           python-version: ${{ matrix.python-version }}
+          allow-prereleases: true
           cache: true
 
       - name: Install dependencies
         run: pdm install
+      - name: Check style
+        run: pdm run lint
       - name: Run Tests
         run: pdm run test

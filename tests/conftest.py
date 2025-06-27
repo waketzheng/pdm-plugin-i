@@ -12,7 +12,7 @@ def main() -> Core:
 
 @pytest.fixture(scope="session")
 def invoke(main: Core):
-    runner = CliRunner(mix_stderr=False)
+    runner = CliRunner()
 
     def caller(args, *, raising=True, **extras):
         result = runner.invoke(

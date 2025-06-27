@@ -5,24 +5,25 @@ build-backend = "pdm.backend"
 [project]
 name = "pdm-plugin-i"
 description = "A PDM plugin that make `pdm i` as alias of `pdm install`"
-authors = [
-    {name = "Waket Zheng", email = "waketzheng@gmail.com"}
-]
+authors = [{name = "Waket Zheng", email = "waketzheng@gmail.com"}]
 license = {text = "MIT"}
 readme = "README.md"
-requires-python = ">=3.8"
-dependencies = []
+requires-python = ">=3.9"
 dynamic = ["version"]
-
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12"
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14"
 ]
+dependencies = []
+
+[dependency-groups]
+dev = ["pytest>=8.3.3", "pdm>=2.20.0", "ruff>=0.7.1", "click>=8.1.7", "mypy>=1.13.0"]
 
 [project.urls]
 Repository = "https://github.com/waketzheng/pdm-plugin-i"
@@ -39,16 +40,14 @@ distribution = true
 package-dir = "src"
 
 [tool.pdm.scripts]
+lock = "pdm lock --group :all --strategy inherit_metadata"
 test = "pytest tests/"
 format = "ruff format ."
 style = "ruff check --extend-select=I,B,SIM --fix ."
-type_hint = "dmypy run ."
+type_hint = "mypy ."
 lint = {composite = ["format", "style", "type_hint"]}
 
 [tool.pytest.ini_options]
 filterwarnings = [
   "ignore::DeprecationWarning"
 ]
-
-[dependency-groups]
-dev = ["pytest>=8.3.3", "pdm>=2.20.0", "ruff>=0.7.1", "click>=8.1.7", "mypy>=1.13.0"]
