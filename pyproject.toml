@@ -48,7 +48,7 @@ package-dir = "src"
 install_without_update_lock = "pdm sync"
 install_plugin = "pdm install --plugins --with=dev"
 deps = {composite = ["install_without_update_lock ", "install_plugin"]}
-lock = "pdm lock --group :all --strategy inherit_metadata"
+lock = "pdm lock --group :all"
 test = "pdm run pytest tests/"
 format = "ruff format ."
 style = "ruff check --extend-select=I,B,SIM --fix ."
