@@ -12,6 +12,9 @@ requires-python = ">=3.9"
 dynamic = ["version"]
 classifiers = [
     "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Environment :: Plugins",
+    "Typing :: Typed",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -42,7 +45,9 @@ plugins = [
 package-dir = "src"
 
 [tool.pdm.scripts]
-deps = "pdm install --plugins --with=dev"
+install_without_update_lock = "pdm sync"
+install_plugin = "pdm install --plugins --with=dev"
+deps = {composite = ["install_without_update_lock ", "install_plugin"]}
 lock = "pdm lock --group :all --strategy inherit_metadata"
 test = "pdm run pytest tests/"
 format = "ruff format ."

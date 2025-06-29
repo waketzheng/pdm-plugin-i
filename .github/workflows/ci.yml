@@ -34,11 +34,9 @@ jobs:
       - name: Install dependencies
         run: |
           pdm config use_uv true
-          pdm run deps
+          pdm run deps  # Or: uv pip install --group dev -e .
       - uses: astral-sh/ruff-action@v3
       - name: Check style
-        run: |
-          uv pip install mypy
-          pdm run lint
+        run: pdm run lint
       - name: Run Tests
         run: pdm run test
